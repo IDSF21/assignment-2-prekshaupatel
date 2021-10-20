@@ -47,13 +47,29 @@ fig = px.choropleth(all_plot_state_data,
                     scope="usa")
 
 fig.layout.template = None
-selected_points = plotly_events(fig) 
-st.caption(desc + "\n across the United States in 2020. Select a State on the Map to Analyze the Trends in that State.")
+st.plotly_chart(fig)
+st.caption(desc + "\n across the United States in 2020.")
+
+
+st.title("Average Number of Daily " + title)
+annual_data = df[['state', category]].dropna().groupby(['state']).mean().reset_index()
+all_states = [us_state_to_abbrev[i] for i in annual_data.state]
+
+fig = px.choropleth(annual_data,
+                    locations = all_states,
+                    locationmode="USA-states",
+                    color=annual_data[category],
+                    color_continuous_scale="Emrld",
+                    scope="usa")
+
+fig.layout.template = None
+selected_points = plotly_events(fig)
+st.caption("Average Number of Daily " + title + " Across the United States in 2020. Select a State on the Map above to Analyze the Trends in that State.")
 
 num = 0
 if len(selected_points) > 0:
     num = selected_points[0]["pointNumber"]
-state = list(all_plot_state_data['state'])[num]
+state = list(annual_data['state'])[num]
     
 st.title(title + " Across " + state)
 
