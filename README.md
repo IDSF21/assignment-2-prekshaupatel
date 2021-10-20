@@ -6,7 +6,6 @@ For this assignment, the dataset used was obtained from [Kaggle](https://www.kag
 This dataset had a usability score of 9.7. 
 The data described the number of COVID-19 cases and related deaths across the United States by state and counties in 2020.
 
-
 #### Goals
 The aim of this interactive application is to analyze trends in COVID-19 cases and related deaths across the United States. 
 Understanding the regional trends can provide better insight into the patterns of changes in COVID-19 cases. 
@@ -19,9 +18,9 @@ This generates a follow-up graph for that state allowing users to visualize the 
 #### Rationale Behind Decisions
 The first aim was to allow user to analyze both COVID-19 cases and related deaths. Since both of them can be seperately visualized, I added the option to switch between the two using a dropdown menu. This reduced the clutter on the page.
 
-The next aim was to visualize the trends in the changes across all the states in the US. Maps usually help visualize geographic information. Consequently, I colored the states in the map depending on the number of COVID-19 cases/deaths. However, the time componenet still 
+The next aim was to visualize the trends in the changes across all the states in the US. Maps usually help visualize geographic information. Consequently, I colored the states in the map depending on the number of COVID-19 cases/deaths. However, the time component still had to be integrated. Placing maps side by side made it difficult to see the changes. So I decided to animate the map to make it easier to view the changes over the months.
 
-A clear description of the goals of your project. Describe the question that you are enabling a user to answer. The question should be compelling and the solution should be focused on helping users achieve their goals. 
-A rationale for your design decisions. How did you choose your particular visual encodings and interaction techniques? What alternatives did you consider and how did you arrive at your ultimate choices?
+Once we saw a pattern, the next step would be to allow users to visualize the trend for the specific state. Since there were to many states, making a dropdown menu seemed infeasible. Instead, the map was designed to be interactive, so that selecting a state on the map would generate plots for that specific state and allow users to further explore the trend. For this visualization, I added two types of plots - absolute and relative trends. Absolute trends make it easier to see the number of cases/deaths while relative trends make it easier to analyze the percentage change in cases/deaths.
 
-An overview of your development process. Describe how the work was split among the team members. Include a commentary on the development process, including answers to the following questions: Roughly how much time did you spend developing your application (in people-hours)? What aspects took the most time?
+#### Development Process
+I did the project by myself. It took me an hour to select the dataset. Once I had that, creating the map plots was challenging. It took me 5 hours to successfully install the relevant libraries and have a baseline map. Next, making that map interactive took me over 3 hours. Once I had the pictoral components ready, it took me two hours to set up the pipeline, clean and process the data and write the code. Most of the time was spend on learning new features of the code and implementing them. Debugging took a long time too. Altogether, I spent over 12 hours project.
